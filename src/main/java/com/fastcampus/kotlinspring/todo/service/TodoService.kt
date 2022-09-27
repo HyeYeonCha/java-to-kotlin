@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.server.ResponseStatusException
+import java.time.LocalDateTime
 
 @Service
 class TodoService(
@@ -34,7 +35,7 @@ class TodoService(
                 title = request.title,
                 description = request.description,
                 done = request.done,
-                createdAt = request.createAt
+                createdAt = LocalDateTime.now()
         )
 
         return todoRepository.save(todo)
